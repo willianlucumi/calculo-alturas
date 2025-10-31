@@ -2,19 +2,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-// Variables globales para Firebase y la autenticación
+
 let app, db, auth;
 let userId;
 let isAuthReady = false;
 
-// Obtener las variables de entorno para Firebase
+
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-// ----------------------------------------------------
-// Lógica de Inicio de Sesión y Registro
-// ----------------------------------------------------
+
 const authFormsContainer = document.getElementById('auth-forms-container');
 const authStatusContainer = document.getElementById('auth-status-container');
 const userEmailDisplay = document.getElementById('user-email-display');
@@ -26,7 +24,7 @@ const signupTab = document.getElementById('signup-tab');
 const loginMessage = document.getElementById('login-message');
 const signupMessage = document.getElementById('signup-message');
 
-// Elementos del nuevo portal de cliente
+
 const portalSection = document.getElementById('portal');
 const portalLink = document.getElementById('portal-link');
 const mobilePortalLink = document.getElementById('mobile-portal-link');
@@ -35,17 +33,16 @@ const exclusiveContentDiv = document.getElementById('exclusive-content');
 const saveQuoteBtn = document.getElementById('save-quote-btn');
 const budgetResultSpan = document.getElementById('budget-result');
 
-// Elementos del panel de administración
 const adminEmailDisplay = document.getElementById('admin-email-display');
 const adminLogoutBtn = document.getElementById('admin-logout-btn');
 const usersListTable = document.getElementById('users-list');
 const adminQuotesList = document.getElementById('admin-quotes-list');
 const adminFormsList = document.getElementById('admin-forms-list');
 
-// Define el email del administrador aquí
+
 const ADMIN_EMAIL = 'admin@tudominio.com';
 
-// Función para actualizar la interfaz de usuario según el estado de autenticación
+
 const updateAuthUI = (user) => {
     if (user && user.isAnonymous === false) {
         // Usuario autenticado con email/password
@@ -60,12 +57,12 @@ const updateAuthUI = (user) => {
         if (saveQuoteBtn) saveQuoteBtn.classList.remove('hidden');
         if (exclusiveContentDiv) displayExclusiveContent();
         
-        // Redirigir si es el administrador
+
         if (user.email === ADMIN_EMAIL && window.location.pathname.endsWith('index.html')) {
             window.location.href = 'admin.html';
         }
     } else {
-        // No hay usuario autenticado con email/password
+
         if (authFormsContainer) authFormsContainer.classList.remove('hidden');
         if (authStatusContainer) authStatusContainer.classList.add('hidden');
         if (portalSection) portalSection.classList.add('hidden');
@@ -75,7 +72,7 @@ const updateAuthUI = (user) => {
     }
 };
 
-// Función para mostrar el contenido exclusivo
+
 const displayExclusiveContent = () => {
     exclusiveContentDiv.innerHTML = `
         <p><strong><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Guía de Materiales Sostenibles:</strong> Descubre los mejores materiales ecológicos para tu proyecto. Desde ladrillos de bambú hasta pinturas sin compuestos volátiles, aprende cómo tu construcción puede ser amigable con el planeta. ¡Reducir tu huella de carbono nunca ha sido tan fácil!</p>
@@ -84,24 +81,24 @@ const displayExclusiveContent = () => {
     `;
 };
 
-// Inicializar Firebase y autenticar al usuario
+
 try {
     app = initializeApp(firebaseConfig);
     auth = getAuth(app);
     db = getFirestore(app);
 
-    // Usar el token de autenticación personalizado si está disponible
+
     if (initialAuthToken) {
         signInWithCustomToken(auth, initialAuthToken).catch((error) => {
             console.error("Error signing in with custom token:", error);
-            // Si falla el token, intentar la autenticación anónima como fallback
+
             signInAnonymously(auth);
         });
     } else {
         signInAnonymously(auth);
     }
 
-    // Escuchar el estado de autenticación para actualizar la UI
+
     onAuthStateChanged(auth, (user) => {
         if (user) {
             userId = user.uid;
@@ -109,7 +106,7 @@ try {
             isAuthReady = true;
             updateAuthUI(user);
             
-            // Suscribirse a los cambios en las cotizaciones guardadas del usuario
+
             if (user.isAnonymous === false) {
                 const quotesCollection = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
                 onSnapshot(quotesCollection, (snapshot) => {
@@ -137,7 +134,7 @@ try {
                 });
             }
 
-            // Lógica para el panel de administración
+
             if (window.location.pathname.endsWith('admin.html') && user.email === ADMIN_EMAIL) {
                 if (adminEmailDisplay) adminEmailDisplay.textContent = user.email;
                 loadAdminData();
@@ -160,9 +157,9 @@ try {
     console.error("Firebase initialization or auth failed:", error);
 }
 
-// Lógica para el panel de administración
+
 async function loadAdminData() {
-    // Cargar y mostrar usuarios (esto es una simulación)
+
     if (usersListTable) {
         usersListTable.innerHTML = `
             <tr class="hover:bg-gray-100 transition-colors">
@@ -174,7 +171,7 @@ async function loadAdminData() {
         `;
     }
 
-    // Cargar y mostrar cotizaciones de todos los usuarios
+
     if (adminQuotesList) {
         adminQuotesList.innerHTML = '<p class="text-center text-gray-500">Cargando cotizaciones...</p>';
         const usersCollection = collection(db, `artifacts/${appId}/users`);
@@ -209,7 +206,7 @@ async function loadAdminData() {
         }
     }
 
-    // Cargar y mostrar formularios de contacto de todos los usuarios
+
     if (adminFormsList) {
         adminFormsList.innerHTML = '<p class="text-center text-gray-500">Cargando formularios...</p>';
         const usersCollection = collection(db, `artifacts/${appId}/users`);
@@ -246,7 +243,7 @@ async function loadAdminData() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Funcionalidad del menú móvil
+
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (menuBtn && mobileMenu) {
@@ -255,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Desplazamiento suave para los enlaces del menú
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -274,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lógica de la calculadora de altura
+
     const distanceInput = document.getElementById('distance');
     const angleInput = document.getElementById('angle');
     const calculateBtn = document.getElementById('calculate-btn');
@@ -291,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Convertir el ángulo de grados a radianes
+
             const angleInRadians = (angle * Math.PI) / 180;
             const height = distance * Math.tan(angleInRadians);
             
@@ -300,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para el botón "Volver arriba"
+
     const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -319,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para la calculadora de presupuesto
+
     const calculateBudgetBtn = document.getElementById('calculate-budget-btn');
 
     if (calculateBudgetBtn) {
@@ -334,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Precios base por m² según tipo y calidad
+
             const prices = {
                 nueva_casa: { basico: 1000, medio: 1500, premium: 2000 },
                 remodelacion: { basico: 700, medio: 1200, premium: 1800 },
@@ -349,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para guardar cotización en Firebase
+
     if (saveQuoteBtn) {
         saveQuoteBtn.addEventListener('click', async () => {
             const projectType = document.getElementById('project-type').value;
@@ -390,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica de la galería "Antes y Después"
+
     const beforeAfterContainer = document.querySelector('.before-after-container');
     const afterImg = document.querySelector('.after-img');
     const divider = document.querySelector('.slider-divider');
@@ -432,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica del Chatbot
+
     const chatbotBtn = document.getElementById('chatbot-btn');
     const chatbotContainer = document.getElementById('chatbot-container');
     const closeChatbotBtn = document.getElementById('close-chatbot-btn');
@@ -465,13 +462,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = userInput.value.trim();
         if (message === '') return;
 
-        // Mostrar el mensaje del usuario
+
         const userMessageDiv = document.createElement('div');
         userMessageDiv.className = 'flex items-end justify-end';
         userMessageDiv.innerHTML = `<div class="bg-blue-600 text-white p-3 rounded-lg max-w-[70%]">${message}</div>`;
         chatbotMessages.appendChild(userMessageDiv);
         
-        // Simular respuesta del bot
+
         setTimeout(() => {
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'flex items-start';
@@ -497,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userInput.value = '';
     }
 
-    // Lógica para guardar datos en la base de datos
+
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
     const submitBtn = document.getElementById('submit-btn');
@@ -522,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message').value;
 
             try {
-                // Agregar el documento a la colección privada del usuario
+
                 const userContactFormCollection = collection(db, `artifacts/${appId}/users/${userId}/contact_form_submissions`);
                 await addDoc(userContactFormCollection, {
                     name: name,
@@ -546,11 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------
-    // Manejadores de eventos de Inicio de Sesión y Registro
-    // ----------------------------------------
-
-    // Función para cambiar de pestaña entre login y registro
     const switchForm = (showLogin) => {
         if (loginTab) {
             if (showLogin) {
@@ -570,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginTab) loginTab.addEventListener('click', () => switchForm(true));
     if (signupTab) signupTab.addEventListener('click', () => switchForm(false));
 
-    // Manejar el envío del formulario de inicio de sesión
+
     if (loginForm) loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('login-email').value;
@@ -581,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await signInWithEmailAndPassword(auth, email, password);
             loginMessage.textContent = '¡Inicio de sesión exitoso!';
             loginMessage.className = 'mt-4 text-center font-semibold text-green-500';
-            // Redirigir al admin si es necesario
+
             if (email === ADMIN_EMAIL && window.location.pathname.endsWith('index.html')) {
                 window.location.href = 'admin.html';
             }
@@ -596,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Manejar el envío del formulario de registro
+
     if (signupForm) signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('signup-email').value;
@@ -622,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Manejar el cierre de sesión
+
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
             try {
@@ -644,3 +636,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
