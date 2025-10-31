@@ -11,7 +11,7 @@
 </head>
 <body class="bg-gray-100 text-gray-800 font-inter">
 
-    <!-- Navbar del Admin -->
+    
     <nav class="bg-white sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-gray-900">Panel de Administración</a>
@@ -25,7 +25,7 @@
     <div class="container mx-auto px-4 py-12">
         <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">Panel de Administración</h1>
 
-        <!-- Pestañas de navegación del admin -->
+    
         <div class="flex flex-wrap justify-center mb-8 gap-4">
             <button id="users-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors bg-blue-600 text-white shadow-lg hover:bg-blue-700">Usuarios</button>
             <button id="quotes-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Cotizaciones</button>
@@ -34,9 +34,9 @@
             <button id="config-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Configuración</button>
         </div>
 
-        <!-- Contenedor del contenido de las pestañas -->
+    
         <div id="admin-content-container" class="space-y-12">
-            <!-- Sección de Usuarios (por defecto) -->
+    
             <div id="users-section" class="admin-section">
                 <h2 class="text-3xl font-bold text-center mb-6">Gestión de Usuarios</h2>
                 <div class="bg-white p-6 rounded-xl shadow-lg overflow-x-auto">
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <!-- Sección de Cotizaciones (oculta por defecto) -->
+    
             <div id="quotes-section" class="admin-section hidden">
                 <h2 class="text-3xl font-bold text-center mb-6">Cotizaciones de Todos los Usuarios</h2>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-            <!-- Sección de Formularios (oculta por defecto) -->
+    
             <div id="forms-section" class="admin-section hidden">
                 <h2 class="text-3xl font-bold text-center mb-6">Formularios de Contacto de Todos los Usuarios</h2>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             
-            <!-- Sección de Estadísticas (oculta por defecto) -->
+    
             <div id="stats-section" class="admin-section hidden">
                 <h2 class="text-3xl font-bold text-center mb-6">Estadísticas y Análisis</h2>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <!-- Sección de Configuración (oculta por defecto) -->
+    
             <div id="config-section" class="admin-section hidden">
                 <h2 class="text-3xl font-bold text-center mb-6">Configuración del Sistema</h2>
                 <div class="bg-white p-6 rounded-xl shadow-lg">
@@ -117,7 +117,7 @@
 
     <script type="module" src="main.js"></script>
     <script>
-        // Lógica de pestañas del admin
+    
         document.querySelectorAll('.admin-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('bg-blue-600', 'text-white'));
@@ -132,3 +132,4 @@
     </script>
 </body>
 </html>
+
