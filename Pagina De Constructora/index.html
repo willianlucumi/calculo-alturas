@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructora - Construimos tus sueños</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-2xl font-bold text-gray-900">Tu Constructora</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="nav-link text-gray-600 hover:text-blue-600">Inicio</a>
+                <a href="#servicios" class="nav-link text-gray-600 hover:text-blue-600">Servicios</a>
+                <a href="#proyectos" class="nav-link text-gray-600 hover:text-blue-600">Proyectos</a>
+                <a href="#calculadoras" class="nav-link text-gray-600 hover:text-blue-600">Calculadoras</a>
+                <a href="#nosotros" class="nav-link text-gray-600 hover:text-blue-600">Nosotros</a>
+                <a href="#contacto" class="nav-link text-gray-600 hover:text-blue-600">Contacto</a>
+                <!-- Nuevo enlace al portal del cliente (oculto por defecto) -->
+                <a href="#portal" id="portal-link" class="nav-link text-gray-600 hover:text-blue-600 hidden">Mi Portal</a>
+                <a href="#inicio-sesion" class="nav-link text-gray-600 hover:text-blue-600">Inicio de Sesión</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
+            <a href="#inicio" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Inicio</a>
+            <a href="#servicios" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Servicios</a>
+            <a href="#proyectos" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyectos</a>
+            <a href="#calculadoras" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Calculadoras</a>
+            <a href="#nosotros" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Nosotros</a>
+            <a href="#contacto" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contacto</a>
+            <a href="#portal" id="mobile-portal-link" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hidden">Mi Portal</a>
+            <a href="#inicio-sesion" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Inicio de Sesión</a>
+        </div>
+    </nav>
+
+    <!-- 🏠 Inicio -->
+    <header id="inicio" class="parallax parallax-section-1 h-screen flex items-center justify-center text-center text-white">
+        <div class="bg-black bg-opacity-50 p-8 rounded-xl shadow-lg max-w-2xl mx-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold section-title mb-4">Construimos tus sueños con bases sólidas.</h1>
+            <p class="text-xl md:text-2xl font-light">Transformamos tus ideas en realidades tangibles, con calidad, compromiso e innovación.</p>
+            <a href="#contacto" class="mt-8 inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Solicita una cotización</a>
+        </div>
+    </header>
+
+    <!-- 🧱 Servicios -->
+    <section id="servicios" class="container mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Nuestros Servicios</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 hover:shadow-2xl transition-shadow duration-300">
+                <i class="fas fa-hammer text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-semibold mb-2">Construcción de Casas</h3>
+                <p class="text-gray-600">Desde el primer cimiento hasta la entrega de llaves, construimos hogares que perduran.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 hover:shadow-2xl transition-shadow duration-300">
+                <i class="fas fa-paint-roller text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-semibold mb-2">Remodelaciones</h3>
+                <p class="text-gray-600">Renovamos tus espacios, dándoles una nueva vida y adaptándolos a tus necesidades actuales.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 hover:shadow-2xl transition-shadow duration-300">
+                <i class="fas fa-city text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-semibold mb-2">Obra Civil</h3>
+                <p class="text-gray-600">Expertos en cimentación, movimientos de tierra y estructuras robustas.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 hover:shadow-2xl transition-shadow duration-300">
+                <i class="fas fa-drafting-compass text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-semibold mb-2">Planos y Arquitectura</h3>
+                <p class="text-gray-600">Diseñamos espacios funcionales y estéticos que reflejan tu estilo.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 hover:shadow-2xl transition-shadow duration-300">
+                <i class="fas fa-tasks text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-semibold mb-2">Dirección de Obra</h3>
+                <p class="text-gray-600">Supervisión profesional para garantizar calidad, seguridad y cumplimiento de plazos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏗️ Proyectos -->
+    <section id="proyectos" class="bg-gray-200 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Nuestros Proyectos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="Imagen/Proyecto_1.png" alt="Proyecto 1 Terminado" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2">Residencia Familiar</h3>
+                        <p class="text-gray-600">Construcción de una moderna casa familiar en un entorno natural.</p>
+                        <div class="flex items-center mt-4">
+                            <span class="mr-4 text-green-500 font-semibold">Terminado</span>
+                            <span class="text-gray-500"><i class="fas fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="Imagen/Proyecto_2.png" alt="Proyecto 2 Remodelación" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2">Remodelación de Oficina</h3>
+                        <p class="text-gray-600">Transformación completa de un espacio de oficina para mayor funcionalidad.</p>
+                        <div class="flex items-center mt-4">
+                            <span class="mr-4 text-green-500 font-semibold">Terminado</span>
+                            <span class="text-gray-500"><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="Imagen/Proyecto_3.png" alt="Proyecto 3 en Proceso" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2">Edificio Residencial</h3>
+                        <p class="text-gray-600">Construcción de un edificio de apartamentos de 4 pisos.</p>
+                        <div class="flex items-center mt-4">
+                            <span class="mr-4 text-yellow-500 font-semibold">En Proceso</span>
+                            <span class="text-gray-500"><i class="fas fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Galería "Antes y Después" -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-8">Galería de Transformaciones</h3>
+                <div class="flex flex-col md:flex-row gap-8 justify-center">
+                    <div class="before-after-container relative w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg group">
+                        <!-- Before Image -->
+                        <img src="https://placehold.co/800x600/6b7280/ffffff?text=Antes" alt="Imagen Antes" class="w-full h-auto object-cover">
+                        <!-- After Image -->
+                        <img src="https://placehold.co/800x600/2563eb/ffffff?text=Despues" alt="Imagen Después" class="after-img absolute top-0 left-1/2 h-full w-1/2 object-cover">
+                        <!-- Divider -->
+                        <div class="slider-divider absolute top-0 left-1/2 w-1 h-full bg-white cursor-ew-resize"></div>
+                        <!-- Label for Before and After -->
+                        <span class="absolute top-4 left-4 text-white bg-black bg-opacity-50 px-3 py-1 rounded-full text-sm">Antes</span>
+                        <span class="absolute top-4 right-4 text-white bg-black bg-opacity-50 px-3 py-1 rounded-full text-sm">Después</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📏 Calculadoras -->
+    <section id="calculadoras" class="container mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Herramientas y Calculadoras</h2>
+        <div class="flex flex-col md:flex-row gap-8 justify-center items-start">
+            <!-- Calculadora de Altura -->
+            <div class="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 lg:w-1/3">
+                <h3 class="text-2xl font-semibold text-center mb-4">Calculadora de Altura</h3>
+                <p class="text-gray-600 mb-6 text-center">
+                    Estima la altura de una estructura.
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="distance" class="block text-gray-700 font-bold mb-2">Distancia Horizontal (L) en metros</label>
+                        <input type="number" id="distance" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Ej: 10" step="any" required>
+                    </div>
+                    <div>
+                        <label for="angle" class="block text-gray-700 font-bold mb-2">Ángulo de Elevación ($\theta$) en grados</label>
+                        <input type="number" id="angle" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Ej: 45" step="any" required>
+                    </div>
+                </div>
+                <button id="calculate-btn" class="w-full mt-6 px-6 py-3 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Calcular Altura</button>
+                <div id="result-box" class="mt-6 p-4 bg-gray-100 rounded-lg text-center font-semibold text-lg">
+                    La altura estimada es: <span id="result-height" class="text-blue-600">0</span> metros.
+                </div>
+                <p class="text-center mt-4 text-sm text-gray-500">
+                    Fórmula: $h = L * \tan(\theta)$
+                </p>
+            </div>
+
+            <!-- Calculadora de Presupuesto -->
+            <div class="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 lg:w-1/3">
+                <h3 class="text-2xl font-semibold text-center mb-4">Calculadora de Presupuesto</h3>
+                <p class="text-gray-600 mb-6 text-center">
+                    Estima el costo de tu proyecto de construcción o remodelación.
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="project-type" class="block text-gray-700 font-bold mb-2">Tipo de Proyecto</label>
+                        <select id="project-type" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="nueva_casa">Nueva Casa</option>
+                            <option value="remodelacion">Remodelación</option>
+                            <option value="obra_civil">Obra Civil</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="area" class="block text-gray-700 font-bold mb-2">Área (m²)</label>
+                        <input type="number" id="area" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Ej: 100" min="1" required>
+                    </div>
+                    <div>
+                        <label for="quality" class="block text-gray-700 font-bold mb-2">Nivel de Acabados</label>
+                        <select id="quality" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="basico">Básico</option>
+                            <option value="medio">Medio</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="calculate-budget-btn" class="w-full mt-6 px-6 py-3 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Calcular Presupuesto</button>
+                <button id="save-quote-btn" class="w-full mt-3 px-6 py-3 bg-green-600 text-white font-bold rounded-full btn-primary hover:bg-green-700 hidden">Guardar Cotización</button>
+                <div id="budget-result-box" class="mt-6 p-4 bg-gray-100 rounded-lg text-center font-semibold text-lg">
+                    Costo estimado: <span id="budget-result" class="text-blue-600">$0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧑‍💼 Nosotros -->
+    <section id="nosotros" class="container mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Sobre Nosotros</h2>
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg text-gray-600 mb-6">
+                [Nombre de tu Constructora] nació en [Año de fundación] con la visión de ser un referente en el sector. A lo largo de los años, hemos construido una reputación basada en la **calidad, la integridad y el compromiso** con cada proyecto.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-8">
+                <div>
+                    <h4 class="text-2xl font-semibold text-blue-600 mb-2">Misión</h4>
+                    <p class="text-gray-700">Transformar ideas en realidades, construyendo espacios funcionales y estéticos que superen las expectativas de nuestros clientes.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold text-blue-600 mb-2">Visión</h4>
+                    <p class="text-gray-700">Ser la empresa líder en el sector de la construcción, reconocida por nuestra excelencia y compromiso con la calidad.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold text-blue-600 mb-2">Valores</h4>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Calidad</li>
+                        <li>Integridad</li>
+                        <li>Compromiso</li>
+                        <li>Innovación</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12">
+                <h4 class="text-2xl font-semibold mb-4">Nuestro Equipo</h4>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="text-center">
+                        <img src="https://placehold.co/120x120/404E64/ffffff?text=WILLIAN " alt="WILLIAN LUCUMI" class="rounded-full w-24 h-24 mx-auto mb-2 object-cover">
+                        <h5 class="font-bold">WILLIAN ANDRES</h5>
+                        <h6 class="font-bold">LUCUMI TOBAR</h6>
+                        <p class="text-sm text-gray-500">Gerente de Proyectos</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/120x120/404E64/ffffff?text=MARY" alt="MARY YULIETH" class="rounded-full w-24 h-24 mx-auto mb-2 object-cover">
+                        <h5 class="font-bold">MARY YULIETH</h5>
+                        <h6 class="font-bold">GARCIA ARDILA</h6>
+                        <p class="text-sm text-gray-500">Arquitecta Principal</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/120x120/404E64/ffffff?text=LUIS " alt="LUIS FERNANDO" class="rounded-full w-24 h-24 mx-auto mb-2 object-cover">
+                        <h5 class="font-bold">LUIS FERNANDO</h5>
+                        <h6 class="font-bold">BLANCO PACHECO</h6>
+                        <p class="text-sm text-gray-500">Gerente de Proyectos</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/120x120/404E64/ffffff?text=MARIA" alt="MARIA STEPHANNY" class="rounded-full w-24 h-24 mx-auto mb-2 object-cover">
+                        <h5 class="font-bold">MARIA STEPHANNY</h5>
+                        <h6 class="font-bold">LAVAO VEGA</h6>
+                        <p class="text-sm text-gray-500">Arquitecta Principal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📞 Contacto -->
+    <section id="contacto" class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Contáctanos</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Contact Info -->
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar tu proyecto?</h3>
+                    <p class="mb-6">Déjanos tus datos y nos pondremos en contacto contigo lo antes posible para ayudarte a construir el futuro que deseas.</p>
+                    <ul class="space-y-4">
+                        <li><i class="fab fa-whatsapp text-green-500 mr-2"></i> WhatsApp: <a href="https://wa.me/XXXXXXXXXX" class="hover:underline">312-234-8756</a></li>
+                        <li><i class="fas fa-phone mr-2"></i> Teléfono: 311-706-6836</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Dirección: Calle Falsa 123, Ciudad, País</li>
+                    </ul>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in text-2xl"></i></a>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="bg-white p-8 rounded-xl shadow-lg text-gray-800">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-bold mb-2">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Enviar Mensaje</button>
+                        <div id="form-message" class="mt-4 text-center font-semibold"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 🔑 Inicio de Sesión / Registro -->
+    <section id="inicio-sesion" class="bg-gray-200 py-16 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md mx-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-6">Acceso de Clientes</h2>
+            
+            <!-- Contenedor del estado de autenticación -->
+            <div id="auth-status-container" class="hidden">
+                <p class="text-center text-lg font-semibold mb-4">Bienvenido, <span id="user-email-display" class="text-blue-600"></span></p>
+                <button id="logout-btn" class="w-full px-6 py-3 bg-red-600 text-white font-bold rounded-full btn-primary hover:bg-red-700">Cerrar Sesión</button>
+            </div>
+            
+            <!-- Contenedor de formularios de inicio de sesión/registro -->
+            <div id="auth-forms-container">
+                <!-- Pestañas -->
+                <div class="flex justify-center mb-4 space-x-4">
+                    <button id="login-tab" class="auth-tab text-lg font-semibold px-4 py-2 rounded-md transition-colors bg-blue-600 text-white">Iniciar Sesión</button>
+                    <button id="signup-tab" class="auth-tab text-lg font-semibold px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-300">Registrarse</button>
+                </div>
+                
+                <!-- Formulario de Inicio de Sesión -->
+                <form id="login-form" class="auth-form space-y-4">
+                    <div>
+                        <label for="login-email" class="block text-gray-700 font-bold mb-2">Correo electrónico</label>
+                        <input type="email" id="login-email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-gray-700 font-bold mb-2">Contraseña</label>
+                        <input type="password" id="login-password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                    </div>
+                    <button type="submit" id="login-btn" class="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Iniciar Sesión</button>
+                    <div id="login-message" class="mt-4 text-center font-semibold"></div>
+                </form>
+
+                <!-- Formulario de Registro (oculto por defecto) -->
+                <form id="signup-form" class="auth-form space-y-4 hidden">
+                    <div>
+                        <label for="signup-email" class="block text-gray-700 font-bold mb-2">Correo electrónico</label>
+                        <input type="email" id="signup-email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                    </div>
+                    <div>
+                        <label for="signup-password" class="block text-gray-700 font-bold mb-2">Contraseña</label>
+                        <input type="password" id="signup-password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                    </div>
+                    <button type="submit" id="signup-btn" class="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-full btn-primary hover:bg-blue-700">Registrarse</button>
+                    <div id="signup-message" class="mt-4 text-center font-semibold"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 Portal del Cliente -->
+    <section id="portal" class="container mx-auto px-4 py-16 hidden">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Mi Portal</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+            <!-- Mis Cotizaciones -->
+            <div class="bg-white p-8 rounded-xl shadow-lg col-span-1">
+                <h3 class="text-2xl font-semibold mb-4">Mis Cotizaciones Guardadas</h3>
+                <div id="quotes-list" class="space-y-4">
+                    <p class="text-gray-500">No tienes cotizaciones guardadas. Usa la calculadora para crear una.</p>
+                </div>
+            </div>
+
+            <!-- Proyectos Activos -->
+            <div class="bg-white p-8 rounded-xl shadow-lg col-span-1">
+                <h3 class="text-2xl font-semibold mb-4">Mis Proyectos Activos</h3>
+                <div id="projects-list" class="space-y-4">
+                    <div class="p-4 bg-gray-100 rounded-lg">
+                        <p class="font-bold">Proyecto Remodelación Cocina</p>
+                        <p class="text-sm text-gray-600 mt-1">Estado: <span class="text-yellow-600 font-semibold">En Proceso</span></p>
+                        <p class="text-sm text-gray-600">Fecha de inicio: 15/03/2024</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg">
+                        <p class="font-bold">Construcción de Garaje</p>
+                        <p class="text-sm text-gray-600 mt-1">Estado: <span class="text-green-600 font-semibold">Terminado</span></p>
+                        <p class="text-sm text-gray-600">Fecha de finalización: 20/01/2024</p>
+                    </div>
+                    <p class="mt-4 text-gray-500 text-sm">Pronto podrás ver el progreso en tiempo real de tus proyectos aquí.</p>
+                </div>
+            </div>
+
+            <!-- Contenido Exclusivo -->
+            <div class="bg-white p-8 rounded-xl shadow-lg col-span-1 lg:col-span-1">
+                <h3 class="text-2xl font-semibold mb-4">Contenido Exclusivo</h3>
+                <div id="exclusive-content" class="prose max-w-none text-gray-700">
+                    <!-- Contenido exclusivo inyectado por JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Tu Constructora. Todos los derechos reservados.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div id="user-id-display" class="mt-4 text-center text-gray-500 text-xs"></div>
+    </footer>
+
+    <!-- Botón Volver arriba -->
+    <button id="scroll-to-top-btn" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg transition-transform duration-300 ease-in-out transform scale-0 opacity-0 hover:bg-blue-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Botón de Chatbot -->
+    <button id="chatbot-btn" class="fixed bottom-8 left-8 bg-green-500 text-white p-4 rounded-full shadow-lg z-40 transition-transform hover:scale-110">
+        <i class="fas fa-comments text-2xl"></i>
+    </button>
+
+    <!-- Ventana del Chatbot -->
+    <div id="chatbot-container" class="fixed bottom-24 left-8 w-80 h-96 bg-white rounded-xl shadow-lg flex flex-col z-50 transition-opacity transform scale-0 opacity-0 origin-bottom-left">
+        <div class="bg-blue-600 text-white p-4 rounded-t-xl flex justify-between items-center">
+            <h4 class="font-bold">Asistente Virtual</h4>
+            <button id="close-chatbot-btn" class="text-white hover:text-gray-200 text-lg">&times;</button>
+        </div>
+        <div id="chatbot-messages" class="flex-grow p-4 overflow-y-auto space-y-4">
+            <!-- Mensajes del Chatbot aquí -->
+            <div class="flex items-start">
+                <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[70%]">
+                    Hola, ¿en qué puedo ayudarte hoy?
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex">
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje..." class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <button id="send-btn" class="ml-2 px-4 py-2 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>

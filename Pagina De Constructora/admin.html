@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Tu Constructora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-inter">
+
+    <!-- Navbar del Admin -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-900">Panel de Administración</a>
+            <div class="flex space-x-4 items-center">
+                <span id="admin-email-display" class="font-medium text-gray-600"></span>
+                <button id="admin-logout-btn" class="px-4 py-2 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-colors">Cerrar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">Panel de Administración</h1>
+
+        <!-- Pestañas de navegación del admin -->
+        <div class="flex flex-wrap justify-center mb-8 gap-4">
+            <button id="users-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors bg-blue-600 text-white shadow-lg hover:bg-blue-700">Usuarios</button>
+            <button id="quotes-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Cotizaciones</button>
+            <button id="forms-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Formularios de Contacto</button>
+            <button id="stats-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Estadísticas</button>
+            <button id="config-tab" class="admin-tab text-lg font-semibold px-6 py-3 rounded-xl transition-colors text-gray-600 bg-white shadow-lg hover:bg-gray-200">Configuración</button>
+        </div>
+
+        <!-- Contenedor del contenido de las pestañas -->
+        <div id="admin-content-container" class="space-y-12">
+            <!-- Sección de Usuarios (por defecto) -->
+            <div id="users-section" class="admin-section">
+                <h2 class="text-3xl font-bold text-center mb-6">Gestión de Usuarios</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">UID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-list" class="bg-white divide-y divide-gray-200">
+                            <tr><td colspan="4" class="text-center py-4 text-gray-500">Cargando usuarios...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-8 p-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-xl shadow-lg">
+                    <p class="font-bold">Nota:</p>
+                    <p class="text-sm">La gestión completa de usuarios (suspender, eliminar, roles) requiere un **backend seguro** con permisos elevados.</p>
+                </div>
+            </div>
+
+            <!-- Sección de Cotizaciones (oculta por defecto) -->
+            <div id="quotes-section" class="admin-section hidden">
+                <h2 class="text-3xl font-bold text-center mb-6">Cotizaciones de Todos los Usuarios</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div id="admin-quotes-list" class="space-y-4">
+                        <p class="text-center text-gray-500">Cargando cotizaciones...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Formularios (oculta por defecto) -->
+            <div id="forms-section" class="admin-section hidden">
+                <h2 class="text-3xl font-bold text-center mb-6">Formularios de Contacto de Todos los Usuarios</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div id="admin-forms-list" class="space-y-4">
+                        <p class="text-center text-gray-500">Cargando formularios...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Estadísticas (oculta por defecto) -->
+            <div id="stats-section" class="admin-section hidden">
+                <h2 class="text-3xl font-bold text-center mb-6">Estadísticas y Análisis</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <p class="text-center text-gray-500">
+                        Aquí se podrían mostrar gráficos y métricas del sitio, como el crecimiento de usuarios y las tendencias de contenido. Esto requeriría una base de datos con información agregada y una biblioteca de gráficos como Chart.js.
+                    </p>
+                    <div class="mt-6 p-4 bg-blue-100 border-l-4 border-blue-500 text-blue-700 rounded-xl">
+                        <p class="font-bold">Ejemplos de Métricas:</p>
+                        <ul class="list-disc list-inside mt-2 text-sm">
+                            <li>Usuarios registrados en el último mes.</li>
+                            <li>Número de cotizaciones guardadas.</li>
+                            <li>Formularios de contacto enviados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Configuración (oculta por defecto) -->
+            <div id="config-section" class="admin-section hidden">
+                <h2 class="text-3xl font-bold text-center mb-6">Configuración del Sistema</h2>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <p class="text-center text-gray-500">
+                        Esta sección manejaría la configuración global de la aplicación y el **historial de auditoría**.
+                    </p>
+                    <div class="mt-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-xl">
+                        <p class="font-bold">Advertencia:</p>
+                        <p class="text-sm">El historial de auditoría y la configuración de seguridad requieren una implementación robusta de backend para registrar todas las acciones del administrador y proteger el sistema.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script>
+        // Lógica de pestañas del admin
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('bg-blue-600', 'text-white'));
+                document.querySelectorAll('.admin-tab').forEach(t => t.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-200'));
+                tab.classList.add('bg-blue-600', 'text-white');
+                tab.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-200');
+
+                document.querySelectorAll('.admin-section').forEach(section => section.classList.add('hidden'));
+                document.getElementById(tab.id.replace('-tab', '-section')).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

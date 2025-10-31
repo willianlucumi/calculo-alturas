@@ -1,0 +1,72 @@
+/* Estilos CSS separados para mayor claridad */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.section-title {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.btn-primary {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-section-1 {
+    background-image: url('Imagen/img.contructora.jpg');
+}
+#scroll-to-top-btn.show {
+    transform: scale(1);
+    opacity: 1;
+}
+#chatbot-container.show {
+    transform: scale(1);
+    opacity: 1;
+}
+.before-after-container {
+    position: relative;
+    cursor: grab;
+}
+.after-img {
+    pointer-events: none;
+}
+.slider-divider {
+    background-color: white;
+}
+.auth-tab.active {
+    background-color: #2563eb;
+    color: white;
+}
+.auth-tab:not(.active) {
+    background-color: transparent;
+    color: #0f0407;
+}
+.auth-tab:not(.active):hover {
+    background-color: #1652c9;
+}
